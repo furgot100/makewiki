@@ -2,27 +2,27 @@ from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 
-from wiki.models import Page
+from wiki.models import Article
 
 
-class PageListView(ListView):
-    """ Renders a list of all Pages. """
-    model = Page
+class ArticleListView(ListView):
+    """ Renders a list of all Articles. """
+    model = Article
 
     def get(self, request):
-        """ GET a list of Pages. """
-        pages = self.get_queryset().all()
+        """ GET a list of Articles. """
+        articles = self.get_queryset().all()
         return render(request, 'list.html', {
-          'pages': pages
+          'articles': articles
         })
 
-class PageDetailView(DetailView):
-    """ Renders a specific page based on it's slug."""
-    model = Page
+class ArticleDetailView(DetailView):
+    """ Renders a specific article based on it's slug."""
+    model = Article
 
     def get(self, request, slug):
-        """ Returns a specific wiki page by slug. """
-        page = self.get_queryset().get(slug__iexact=slug)
-        return render(request, 'page.html', {
-          'page': page
+        """ Returns a specific wiki article by slug. """
+        article = self.get_queryset().get(slug__iexact=slug)
+        return render(request, 'article.html', {
+          'article': article
         })

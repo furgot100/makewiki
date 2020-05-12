@@ -1,8 +1,8 @@
 from django.urls import path
-from wiki.views import PageListView, PageDetailView
+from wiki.views import ArticleListView, ArticleDetailView
 
 
 urlpatterns = [
-    path('', PageListView.as_view(), name='wiki-list-page'),
-    path('<str:slug>/', PageDetailView.as_view(), name='wiki-details-page'),
+    path('', ArticleListView.as_view(), name='wiki-list-page'),
+    path('w/<str:slug>/', ArticleDetailView.as_view(), name='wiki-details-page'),
 ]

@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h3>Wikis {% if pages %}<small class="text-muted">({{ pages|length }} Page{{ pages|length|pluralize:"s" }})</small>{% endif %}</h3>
+  <h3>Wikis {% if articles %}<small class="text-muted">({{ articles|length }} Article{{ articles|length|pluralize:"s" }})</small>{% endif %}</h3>
   <hr>
-  {% if pages %}
+  {% if articles %}
     <div class="card-columns">
-      {% for page in pages %}
+      {% for article in articles %}
         {% include "partials/card.html" %}
       {% endfor %}
     </div>
