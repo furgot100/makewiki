@@ -1,9 +1,9 @@
 from django import forms
-from wiki.models import Page
+from wiki.models import Article
 
 
-class PageForm(forms.ModelForm):
-    """ Render and process a form based on the Page model. """
+class ArticleForm(forms.ModelForm):
+    """ Render and process a form based on the Article model. """
     class Meta:
-        model = Page
+        model = Article
         fields = ['title', 'content']
